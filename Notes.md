@@ -121,3 +121,66 @@ const ColorModeSwitch = () => {
 
 export default ColorModeSwitch;
 ```
+
+## Create apiClient using Axios
+
+to avoid repetition of api URLs, also make handling API requests much easier and professional.
+
+1. first of all create a file in `src/services/api-client.ts` and put:
+
+```ts
+import axios from "axios";
+// axios.create() function creates an axios client instance which we'll use it to make requests.
+// as we export this, it will be available as `apiClient` like so "import apiClient from "../services/api-client""
+export default axios.create({
+  baseURL: "https://api.rawg.io/api",
+  // this is how to include api-key in requests
+  params: {
+    key: "d248087d0e624e84b6e0c697d6ee0763",
+  },
+});
+```
+
+2. use apiClient to make backend calls
+
+```tsx
+import React, { useEffect, useState } from "react";
+import apiClient from "../services/api-client";
+import { Text } from "@chakra-ui/react";
+
+interface Game {
+  id: number;
+  name: string;
+}
+
+interface FetchGamesResponse {
+  count: number;
+  results: Game[];
+}
+
+const GameGrid = () => {
+  const [games, setGames] = useState<Game[]>([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    apiClient
+      .get<FetchGamesResponse>("/games")
+      .then((res) => {
+        setGames(res.data.results);
+      })
+      .catch((err) => setError(err.message));
+  }, []);
+  return (
+    <>
+      {error && <Text>{error}</Text>}
+      <ul>
+        {games.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export default GameGrid;
+```
