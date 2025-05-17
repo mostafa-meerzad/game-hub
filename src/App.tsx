@@ -3,8 +3,6 @@ import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 
 const App = () => {
-
-  
   return (
     <Grid
       templateAreas={{ base: `"nav" "main"`, lg: `"nav nav" "aside main"` }}
@@ -12,15 +10,11 @@ const App = () => {
       <GridItem area={"nav"}>
         <Navbar />
       </GridItem>
-      <GridItem
-        display={{ base: "none", lg: "block" }}
-        area={"aside"}
-        bg={"gold"}
-      >
+      <GridItem display={{ base: "none", lg: "block" }} area={"aside"}>
         aside
       </GridItem>
-      <GridItem area={"main"} bg={"dodgerblue"}>
-        <GameGrid/>
+      <GridItem area={"main"}>
+        <GameGrid />
       </GridItem>
     </Grid>
   );
