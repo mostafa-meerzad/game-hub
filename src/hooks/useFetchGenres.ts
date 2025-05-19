@@ -1,6 +1,6 @@
 import useData from "./useData";
 
-interface Genre {
+export interface Genre {
   id: string;
   name: string;
   image_background: string
