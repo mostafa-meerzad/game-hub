@@ -1,54 +1,39 @@
-# React + TypeScript + Vite
+# 🎮 Game Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Game Hub is a sleek and modern web application that allows users to explore a wide range of video games. Powered by the [RAWG Video Games Database API](https://rawg.io/apidocs), it provides up-to-date information on trending, top-rated, and newly released games.
 
-Currently, two official plugins are available:
+Users can search for specific titles, filter games by genre, sort them by popularity or release date, and view detailed information such as platform compatibility, ratings, and more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔍 **Search** for games by title
+- 🔢 **Sort** games by:
+  - Popularity
+  - Release date
+  - Rating
+- 🎮 **Filter** games by genre
+- 📅 View **release dates** and **ratings**
+- 💻 Check **compatible platforms** (PC, Xbox, PlayStation, etc.)
+- ⚡ Smooth animations and transitions with Framer Motion
+- 📱 Responsive design for all screen sizes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React** – UI library for building component-based interfaces
+- **TypeScript** – Typed JavaScript for better tooling and maintainability
+- **Chakra UI** – Modern and accessible component library for styling
+- **Axios** – Promise-based HTTP client for API requests
+- **Framer Motion** – Animation library for seamless UI transitions
+- **Vite** – Fast development build tool and dev server
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+_Coming soon..._
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🖼 Screenshots
+
+_Coming soon..._
+
+## 🌐 Deployment
+
+_Coming soon..._
