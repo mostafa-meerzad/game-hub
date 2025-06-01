@@ -184,3 +184,12 @@ const GameGrid = () => {
 
 export default GameGrid;
 ```
+
+
+## NOTE
+
+before removing a block of code we should always evaluate the cost of removing it. meaning we should check where it is being used, so we can safely remove it.
+
+### shift + f12 --> shows all the places the selection is used.
+
+### when you encounter a piece of code that doesn't seem to belong anywhere but we're using it in multiple places, the best way to deal with this is to put it where the other piece of code is being used along side with it
