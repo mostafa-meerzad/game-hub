@@ -1,4 +1,6 @@
-import genres from "../data/genres";
+import { useQuery } from "@tanstack/react-query";
+import axios from "../services/api-client";
+import { FetchResponse } from "./useData";
 
 export interface Genre {
   id: number;
@@ -6,7 +8,11 @@ export interface Genre {
   image_background: string;
 }
 
-const useFetchGenres = () => ({ data: genres, loading: false, error: null });
-
+const useFetchGenres = () => {
+  return useQuery({
+    queryKey: ["genres"],
+    queryFn: () =>
+      axios.get<FetchResponse<Genre>>("/genres").then((res) => res.data),
+  });
+};
 export default useFetchGenres;
-"compatibility"
