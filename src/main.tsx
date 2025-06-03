@@ -6,11 +6,13 @@ import theme from "./theme.tsx";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ms from "ms";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchInterval: 24 * 60 * 60 * 1000,// 24h
+      refetchInterval: ms("24h"),
+      staleTime: ms("24h"),
       refetchOnMount: false,
       refetchOnReconnect: true,
       refetchOnWindowFocus: false,
