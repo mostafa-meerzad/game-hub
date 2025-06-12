@@ -1,22 +1,17 @@
 import {
-  Box,
-  Button,
-  Collapse,
   Heading,
-  Spinner,
-  Text,
-  useDisclosure,
+  Spinner
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import GameAttributes from "../components/GameAttributes";
-import useGame from "../hooks/useGame";
-import GameTrailer from "../components/GameTrailer";
 import GameScreenShots from "../components/GameScreenShots";
+import GameTrailer from "../components/GameTrailer";
+import useGame from "../hooks/useGame";
+import ExpandableText from "./ExpandableText";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
   const { data: game, isLoading, error } = useGame(slug!);
-  const { isOpen, onToggle } = useDisclosure();
 
   if (isLoading) return <Spinner />;
 
@@ -25,17 +20,10 @@ const GameDetailsPage = () => {
   return (
     <>
       <Heading>{game.name}</Heading>
-      <Box>
-        <Collapse startingHeight={70} in={isOpen}>
-          <Text noOfLines={isOpen ? undefined : 3}>{game.description_raw}</Text>
-        </Collapse>
-        <Button onClick={onToggle} size={"sm"} mt={2} variant={"solid"}>
-          {isOpen ? "Show Less" : "Read More"}
-        </Button>
-      </Box>
+      <ExpandableText text={game.description_raw} />
       <GameTrailer gameId={game.id} />
       <GameAttributes game={game} />
-      <GameScreenShots gameId={game.id} /> 
+      <GameScreenShots gameId={game.id} />
     </>
   );
 };
