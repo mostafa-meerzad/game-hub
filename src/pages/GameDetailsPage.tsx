@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import GameAttributes from "../components/GameAttributes";
 import useGame from "../hooks/useGame";
 import GameTrailer from "../components/GameTrailer";
+import GameScreenShots from "../components/GameScreenShots";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -34,6 +35,7 @@ const GameDetailsPage = () => {
       </Box>
       <GameTrailer gameId={game.id} />
       <GameAttributes game={game} />
+      <GameScreenShots gameId={game.id} /> 
     </>
   );
 };
