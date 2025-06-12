@@ -10,6 +10,7 @@ import {
 import { useParams } from "react-router-dom";
 import GameAttributes from "../components/GameAttributes";
 import useGame from "../hooks/useGame";
+import GameTrailer from "../components/GameTrailer";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -31,7 +32,7 @@ const GameDetailsPage = () => {
           {isOpen ? "Show Less" : "Read More"}
         </Button>
       </Box>
-
+      <GameTrailer gameId={game.id} />
       <GameAttributes game={game} />
     </>
   );
