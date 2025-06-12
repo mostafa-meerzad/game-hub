@@ -7,7 +7,6 @@ import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
-
   const { data, error, isLoading, hasNextPage, fetchNextPage } =
     useFetchGames();
 

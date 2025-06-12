@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom";
-import useGame from "../hooks/useGame";
 import {
+  Box,
   Button,
   Collapse,
   Heading,
@@ -8,6 +7,9 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
+import GameAttributes from "../components/GameAttributes";
+import useGame from "../hooks/useGame";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -21,12 +23,16 @@ const GameDetailsPage = () => {
   return (
     <>
       <Heading>{game.name}</Heading>
-      <Collapse startingHeight={70} in={isOpen}>
-        <Text noOfLines={isOpen ? undefined : 3}>{game.description_raw}</Text>
-      </Collapse>
-      <Button onClick={onToggle} size={"sm"} mt={2} variant={"solid"}>
-        {isOpen ? "Show Less" : "Read More"}
-      </Button>
+      <Box>
+        <Collapse startingHeight={70} in={isOpen}>
+          <Text noOfLines={isOpen ? undefined : 3}>{game.description_raw}</Text>
+        </Collapse>
+        <Button onClick={onToggle} size={"sm"} mt={2} variant={"solid"}>
+          {isOpen ? "Show Less" : "Read More"}
+        </Button>
+      </Box>
+
+      <GameAttributes game={game} />
     </>
   );
 };
