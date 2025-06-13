@@ -1,8 +1,8 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { IconButton, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
-import useQueryStore from "../store";
 import { useNavigate } from "react-router-dom";
+import useQueryStore from "../store";
 
 const SearchInput = () => {
   const setSearchText = useQueryStore((s) => s.setSearchText);
@@ -20,7 +20,7 @@ const SearchInput = () => {
       }}
     >
       <InputGroup>
-        <InputLeftElement children={<BsSearch />} />
+        {/* <InputLeftElement children={<BsSearch />} color={"gray.600"}/> */}
 
         <Input
           borderRadius={20}
@@ -28,6 +28,16 @@ const SearchInput = () => {
           variant={"filled"}
           ref={searchRef}
         />
+        <InputRightElement width="3rem">
+          <IconButton
+            aria-label="Search games"
+            icon={<BsSearch />}
+            size="md"
+            variant="ghost"
+            borderRadius={"full"}
+            type="submit"
+          />
+        </InputRightElement>
       </InputGroup>
     </form>
   );
