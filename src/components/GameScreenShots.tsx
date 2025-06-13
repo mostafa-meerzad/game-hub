@@ -1,5 +1,6 @@
-import { Image, SimpleGrid } from "@chakra-ui/react";
+import { Box, Image, SimpleGrid } from "@chakra-ui/react";
 import useScreenShot from "../hooks/useScreenShot";
+import { motion } from "framer-motion";
 
 interface Props {
   gameId: number;
@@ -15,11 +16,14 @@ const GameScreenShots = ({ gameId, onClick }: Props) => {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} gap={2}>
       {data?.results.map((file) => (
-        <Image
-          key={file.id}
-          src={file.image}
-          onClick={() => onClick(file.image)}
-        />
+        <Box as={motion.div} whileHover={{ scale: 1.03 }} cursor={"pointer"}>
+          <Image
+            key={file.id}
+            src={file.image}
+            onClick={() => onClick(file.image)}
+            borderRadius={"md"}
+          />
+        </Box>
       ))}
     </SimpleGrid>
   );

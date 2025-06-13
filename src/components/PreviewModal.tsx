@@ -22,8 +22,7 @@ const PreviewModal = ({ isOpen, onClose, imgSrc }: Props) => {
           px={{ base: 0, lg: 6 }}
           pt={10}
           pb={{ base: 4, lg: 8 }}
-          my={0}
-          mt={{ base: "32", md: "20", lg: 5 }}
+          mt={{ base: "32", md: "20", lg: "10" }}
           borderRadius={"2xl"}
         >
           <ModalCloseButton />
