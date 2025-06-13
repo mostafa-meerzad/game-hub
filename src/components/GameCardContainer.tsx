@@ -12,7 +12,7 @@ const GameCardContainer = ({ children }: PropsWithChildren) => {
       transition={{ duration: 0.2 }}
       boxShadow="md"
       _hover={{ boxShadow: "xl" }}
-      cursor="pointer"
+    
     >
       {children}
     </MotionBox>
