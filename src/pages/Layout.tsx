@@ -5,12 +5,11 @@ import { Box, Container } from "@chakra-ui/react";
 const Layout = () => {
   return (
     <Container
-      maxW="1440px" // ← 1. hard cap
-      mx="auto" // ← 2. centers when wider
-      px={{ base: 4, md: 6 }}
+      maxW="1440px" 
+      mx="auto" 
     >
       <Navbar />
-      <Box p={10}>
+      <Box>
         <Outlet />
       </Box>
     </Container>
